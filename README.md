@@ -31,6 +31,13 @@
 ##### 3. 결과 저장 안함
 [데이터](./src/test/resources/SampleDataForNotSave.json)
 
+### 작업 내용 
+- 비즈 내비 시작 했을 때 동작 구현 
+- 사용자의 현재 위치 정보 수신했을때 동작 구현
+- 내비 종료 데이터 수신했을때 동작 구현 
+- 로그 처리 
+- 부하 확인 
+
 ### 환경 구축
 - java8 / Spring
 - NoSql
