@@ -7,7 +7,6 @@ import com.mook1594.biznaviapi.utils.DistanceUtils;
 
 public class LocationDistance {
 
-
 	private final Location fromLocation;
 	private final Location toLocation;
 
