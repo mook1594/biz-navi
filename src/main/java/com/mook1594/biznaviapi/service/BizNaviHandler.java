@@ -15,4 +15,8 @@ public class BizNaviHandler {
 		log.info("distanceFormeter: {}", remainDistance);
 		return remainDistance <= 100;
 	}
+
+	public static boolean isValidMove(Location fromLocation, Location toLocation) {
+		return false;
+	}
 }
