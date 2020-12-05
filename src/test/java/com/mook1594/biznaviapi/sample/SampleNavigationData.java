@@ -1,13 +1,15 @@
-package com.mook1594.biznaviapi.model;
+package com.mook1594.biznaviapi.sample;
 
 import java.math.BigDecimal;
 
 import com.mook1594.biznaviapi.enums.NavigationDataType;
+import com.mook1594.biznaviapi.model.NavigationData;
+import com.mook1594.biznaviapi.model.NavigationLocationInfo;
 
-public class NavigationSampleData {
+public class SampleNavigationData {
 	public static NavigationData getNavigationStartDate() {
 		return new NavigationData(NavigationDataType.START_NAVI,
-			new NavigationLocationInfo (
+			new NavigationLocationInfo(
 				"kakao20201113-0001",
 				"202011131101020003",
 				new BigDecimal(7000),
@@ -35,8 +37,8 @@ public class NavigationSampleData {
 				"kakao20201113-0001",
 				"202011131101020005",
 				new BigDecimal(20),
-				new BigDecimal("127.5678494971"),
-				new BigDecimal("36.9577391883654")
+				new BigDecimal("37.394049927942085"),
+				new BigDecimal("127.10985018378015")
 			));
 	}
 }
