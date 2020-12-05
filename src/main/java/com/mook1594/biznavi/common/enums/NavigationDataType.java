@@ -1,4 +1,4 @@
-package com.mook1594.biznaviapi.enums;
+package com.mook1594.biznavi.common.enums;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

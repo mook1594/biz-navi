@@ -1,4 +1,4 @@
-package com.mook1594.biznaviapi.component;
+package com.mook1594.biznavi.component;
 
 import static org.junit.jupiter.api.Assertions.*;
 

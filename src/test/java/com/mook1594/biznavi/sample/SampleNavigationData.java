@@ -1,10 +1,10 @@
-package com.mook1594.biznaviapi.sample;
+package com.mook1594.biznavi.sample;
 
 import java.math.BigDecimal;
 
-import com.mook1594.biznaviapi.enums.NavigationDataType;
-import com.mook1594.biznaviapi.model.NavigationData;
-import com.mook1594.biznaviapi.model.NavigationLocationInfo;
+import com.mook1594.biznavi.common.enums.NavigationDataType;
+import com.mook1594.biznavi.model.NavigationData;
+import com.mook1594.biznavi.model.NavigationLocationInfo;
 
 public class SampleNavigationData {
 	public static NavigationData getNavigationStartDate() {

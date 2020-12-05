@@ -1,14 +1,14 @@
-package com.mook1594.biznaviapi.service;
+package com.mook1594.biznavi.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.mook1594.biznaviapi.component.Location;
-import com.mook1594.biznaviapi.model.NavigationData;
-import com.mook1594.biznaviapi.sample.SampleLocation;
-import com.mook1594.biznaviapi.sample.SampleNavigationData;
+import com.mook1594.biznavi.component.Location;
+import com.mook1594.biznavi.model.NavigationData;
+import com.mook1594.biznavi.sample.SampleLocation;
+import com.mook1594.biznavi.sample.SampleNavigationData;
 
 @DisplayName("조건1. 내비 시작시 설정된 목적지와 내비의 종료 위치가 100m 이내인 경우")
 public class BizNaviHandlerCondition1Test {

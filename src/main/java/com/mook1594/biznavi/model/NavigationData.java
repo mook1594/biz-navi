@@ -1,9 +1,9 @@
-package com.mook1594.biznaviapi.model;
+package com.mook1594.biznavi.model;
 
 import java.util.Objects;
 
-import com.mook1594.biznaviapi.component.Location;
-import com.mook1594.biznaviapi.enums.NavigationDataType;
+import com.mook1594.biznavi.common.enums.NavigationDataType;
+import com.mook1594.biznavi.component.Location;
 
 public class NavigationData {
 

@@ -1,10 +1,10 @@
-package com.mook1594.biznaviapi.sample;
+package com.mook1594.biznavi.sample;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.mook1594.biznaviapi.component.Location;
+import com.mook1594.biznavi.component.Location;
 
 public class SampleLocation {
 
