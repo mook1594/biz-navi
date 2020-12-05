@@ -28,7 +28,7 @@ public class SampleLocation {
 		return new Location("37.393974404327736", "127.11120819324809");
 	}
 
-	public static List<Location> fromKakaoMobilityToSeongNamCityHall() {
+	public static List<Location> routeFromKakaoMobilityToSeongNamCityHall() {
 		return new ArrayList<>(Arrays.asList(
 			seongnamCityHall(),
 			new Location("37.41878581136313", "127.12568038662694"),
