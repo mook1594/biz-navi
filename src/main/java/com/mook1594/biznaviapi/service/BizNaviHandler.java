@@ -12,11 +12,15 @@ public class BizNaviHandler {
 		LocationDistance distance = new LocationDistance(goalLocation, arriveLocation);
 
 		final int remainDistance = distance.distanceForMeter().intValue();
-		log.info("distanceFormeter: {}", remainDistance);
+		log.info("distanceForMeter: {}", remainDistance);
 		return remainDistance <= 100;
 	}
 
 	public static boolean isValidMove(Location fromLocation, Location toLocation) {
-		return false;
+		LocationDistance distance = new LocationDistance(fromLocation, toLocation);
+
+		final int moveDistance = distance.distanceForMeter().intValue();
+		log.info("moveForMeter: {}", moveDistance);
+		return moveDistance > 500;
 	}
 }
