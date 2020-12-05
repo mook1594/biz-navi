@@ -24,7 +24,7 @@ public class NavigationData {
 
 	public Location getLocation() {
 		if(Objects.nonNull(location)) {
-			return getLocation();
+			return location.getLocation();
 		}
 		return null;
 	}
