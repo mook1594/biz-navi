@@ -1,11 +1,11 @@
-package com.mook1594.biznavi.transaction.repository;
+package com.mook1594.biznavi.transactions.repository;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.mook1594.biznavi.transaction.dto.BizNaviTransactionDto;
+import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 
 @ExtendWith(MockitoExtension.class)
 public class BizNaviTransactionRepositoryTest {

@@ -1,4 +1,4 @@
-package com.mook1594.biznavi.transaction.dto;
+package com.mook1594.biznavi.transactions.dto;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.google.common.collect.Lists;
+import com.mook1594.biznavi.transactions.command.BizNaviTransactionCommand;
 
 import lombok.Getter;
 
@@ -51,6 +52,20 @@ public class BizNaviTransactionDto {
 		this.dist = totalDistance;
 		this.finish = transactionFinished;
 		this.locationInfos = Lists.newArrayList();
+	}
+
+	/**
+	 * @param command the bizNaviTransactionCommand
+	 * @return the bizNaviTransactionDto
+	 */
+	public static BizNaviTransactionDto fromCommand(final BizNaviTransactionCommand command) {
+		return new BizNaviTransactionDto(
+			command.getTransactionId(),
+			command.getStartPlaceName(),
+			command.getGoalPlaceName(),
+			command.getTotalDistance(),
+			command.isTransactionFinished()
+		);
 	}
 }
 
