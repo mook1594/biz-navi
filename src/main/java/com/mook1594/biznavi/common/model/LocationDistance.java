@@ -1,9 +1,9 @@
-package com.mook1594.biznavi.component;
+package com.mook1594.biznavi.common.model;
 
 import java.math.BigDecimal;
 
-import com.mook1594.biznavi.utils.BigDecimalUtils;
-import com.mook1594.biznavi.utils.DistanceUtils;
+import com.mook1594.biznavi.common.utils.BigDecimalUtils;
+import com.mook1594.biznavi.common.utils.DistanceUtils;
 
 public class LocationDistance {
 

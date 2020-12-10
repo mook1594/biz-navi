@@ -1,12 +1,12 @@
-package com.mook1594.biznavi.service;
+package com.mook1594.biznavi.common.handler;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.mook1594.biznavi.component.Location;
-import com.mook1594.biznavi.model.NavigationData;
+import com.mook1594.biznavi.common.model.Location;
+import com.mook1594.biznavi.common.model.NavigationData;
 import com.mook1594.biznavi.sample.SampleLocation;
 import com.mook1594.biznavi.sample.SampleNavigationData;
 

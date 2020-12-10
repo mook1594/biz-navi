@@ -1,4 +1,4 @@
-package com.mook1594.biznavi.dto;
+package com.mook1594.biznavi.transaction.dto;
 
 import java.util.List;
 

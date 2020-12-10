@@ -1,4 +1,4 @@
-package com.mook1594.biznavi.component;
+package com.mook1594.biznavi.common.model;
 
 import java.math.BigDecimal;
 

@@ -1,11 +1,11 @@
-package com.mook1594.biznavi.service;
+package com.mook1594.biznavi.common.handler;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-import com.mook1594.biznavi.component.Location;
-import com.mook1594.biznavi.component.LocationDistance;
-import com.mook1594.biznavi.utils.DatetimeUtils;
+import com.mook1594.biznavi.common.model.Location;
+import com.mook1594.biznavi.common.model.LocationDistance;
+import com.mook1594.biznavi.common.utils.DatetimeUtils;
 
 import lombok.extern.slf4j.Slf4j;
 

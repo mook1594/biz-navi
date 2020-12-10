@@ -1,4 +1,4 @@
-package com.mook1594.biznavi.service;
+package com.mook1594.biznavi.common.handler;
 
 import static org.junit.jupiter.api.Assertions.*;
 

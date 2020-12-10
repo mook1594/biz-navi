@@ -1,12 +1,13 @@
-package com.mook1594.biznavi.model;
+package com.mook1594.biznavi.common.model;
 
 import java.util.Objects;
 
 import com.mook1594.biznavi.common.enums.NavigationDataType;
-import com.mook1594.biznavi.component.Location;
+
+import lombok.Getter;
 
 public class NavigationData {
-
+	@Getter
 	private NavigationDataType type;
 	private NavigationLocationInfo location;
 
