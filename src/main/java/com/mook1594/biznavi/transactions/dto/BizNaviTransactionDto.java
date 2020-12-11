@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
+import lombok.Builder;
 import lombok.Getter;
 
 
@@ -13,19 +14,19 @@ public class BizNaviTransactionDto {
 	private String id;
 	private final String stName;
 	private final String glName;
-	private final int dist;
+	private final double dist;
 	private final boolean finish;
 
 	final List<BizNaviLocationInfoDto> locationInfos;
 
-	public BizNaviTransactionDto() {
-		this.id = null;
-		this.stName = null;
-		this.glName = null;
-		this.dist = 0;
-		this.finish = false;
-		this.locationInfos = Lists.newArrayList();
-	}
+	// public BizNaviTransactionDto() {
+	// 	this.id = null;
+	// 	this.stName = null;
+	// 	this.glName = null;
+	// 	this.dist = 0;
+	// 	this.finish = false;
+	// 	this.locationInfos = Lists.newArrayList();
+	// }
 
 	/**
 	 * @param transactionId transaction ID
@@ -34,11 +35,12 @@ public class BizNaviTransactionDto {
 	 * @param totalDistance 총 거리(m)
 	 * @param transactionFinished transaction 종료 여부
 	 */
+	@Builder
 	public BizNaviTransactionDto(
 		final String transactionId,
 		final String startPlaceName,
 		final String goalPlaceName,
-		final int totalDistance,
+		final double totalDistance,
 		boolean transactionFinished
 	) {
 		this.id = transactionId;
@@ -47,6 +49,25 @@ public class BizNaviTransactionDto {
 		this.dist = totalDistance;
 		this.finish = transactionFinished;
 		this.locationInfos = Lists.newArrayList();
+	}
+
+	/**
+	 * @param datetime 날짜 (yyyyMMddHHmmssS- 형식)
+	 * @param lat 위도
+	 * @param lng 경도
+	 */
+	public void addLocationInfo(
+		final String datetime,
+		final String lat,
+		final String lng
+	) {
+		locationInfos.add(
+			BizNaviLocationInfoDto.builder()
+				.datetime(datetime)
+				.lat(lat)
+				.lng(lng)
+				.build()
+		);
 	}
 }
 

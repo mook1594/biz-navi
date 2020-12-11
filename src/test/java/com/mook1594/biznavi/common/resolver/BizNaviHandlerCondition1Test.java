@@ -17,7 +17,7 @@ public class BizNaviHandlerCondition1Test {
 	@DisplayName("설정 목적지와 네비 종료 위치가 100m 이내인지 확인")
 	public void remainDistance1() {
 		NavigationData arrive = SampleNavigationData.getNavigationEndDate();
-		Location arriveLocation = arrive.getLocation();
+		Location arriveLocation = arrive.getLocationInfo().getLocation();
 		Location goalLocation = SampleLocation.kakaoMobility();
 		boolean result = BizNaviHandler.isArriveGoal(arriveLocation, goalLocation);
 
