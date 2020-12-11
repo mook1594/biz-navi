@@ -1,4 +1,4 @@
-package com.mook1594.biznavi.transactions.handler;
+package com.mook1594.biznavi.transactions.handler.data;
 
 import java.util.Optional;
 

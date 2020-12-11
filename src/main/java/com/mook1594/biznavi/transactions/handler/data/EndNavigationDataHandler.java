@@ -1,4 +1,4 @@
-package com.mook1594.biznavi.transactions.handler;
+package com.mook1594.biznavi.transactions.handler.data;
 
 import java.util.Optional;
 
@@ -7,6 +7,7 @@ import com.mook1594.biznavi.transactions.command.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 
 public class EndNavigationDataHandler implements NavigationDataHandler {
+
 	@Override
 	public boolean isType(NavigationDataType type) {
 		return NavigationDataType.END_NAVI == type;
