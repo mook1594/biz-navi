@@ -1,19 +1,15 @@
-package com.mook1594.biznavi.dto;
+package com.mook1594.biznavi.transactions.dto;
 
 import java.util.List;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.google.common.collect.Lists;
 
 import lombok.Getter;
 
-@Document(collection = "bizTransaction")
+
 @Getter
 public class BizNaviTransactionDto {
 
-	@Id
 	private String id;
 	private final String stName;
 	private final String glName;

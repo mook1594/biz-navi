@@ -1,4 +1,4 @@
-package com.mook1594.biznavi.dto;
+package com.mook1594.biznavi.transactions.dto;
 
 import lombok.Builder;
 import lombok.Getter;

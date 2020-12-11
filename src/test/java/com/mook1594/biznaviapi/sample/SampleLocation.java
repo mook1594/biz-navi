@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.mook1594.biznaviapi.component.Location;
+import com.mook1594.biznavi.common.model.Location;
 
 public class SampleLocation {
 

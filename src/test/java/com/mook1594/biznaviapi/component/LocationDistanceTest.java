@@ -8,6 +8,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import com.mook1594.biznavi.common.model.Location;
+import com.mook1594.biznavi.common.model.LocationDistance;
+
 /**
  * To test {@code LocationDistance}
  */

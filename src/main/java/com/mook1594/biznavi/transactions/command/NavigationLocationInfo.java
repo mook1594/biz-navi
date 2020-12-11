@@ -1,8 +1,8 @@
-package com.mook1594.biznaviapi.model;
+package com.mook1594.biznavi.transactions.command;
 
 import java.math.BigDecimal;
 
-import com.mook1594.biznaviapi.component.Location;
+import com.mook1594.biznavi.common.model.Location;
 
 public class NavigationLocationInfo {
 

@@ -1,4 +1,4 @@
-package com.mook1594.biznaviapi;
+package com.mook1594.biznavi;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

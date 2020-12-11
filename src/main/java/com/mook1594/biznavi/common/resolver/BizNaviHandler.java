@@ -1,7 +1,7 @@
-package com.mook1594.biznaviapi.service;
+package com.mook1594.biznavi.common.resolver;
 
-import com.mook1594.biznaviapi.component.Location;
-import com.mook1594.biznaviapi.component.LocationDistance;
+import com.mook1594.biznavi.common.model.Location;
+import com.mook1594.biznavi.common.model.LocationDistance;
 
 import lombok.extern.slf4j.Slf4j;
 

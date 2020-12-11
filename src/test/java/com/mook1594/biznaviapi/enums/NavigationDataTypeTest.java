@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.mook1594.biznavi.common.enums.NavigationDataType;
+
 public class NavigationDataTypeTest {
 
 	@Test
