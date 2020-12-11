@@ -1,4 +1,4 @@
-package com.mook1594.biznaviapi.sample;
+package com.mook1594.biznavi.sample;
 
 import java.math.BigDecimal;
 

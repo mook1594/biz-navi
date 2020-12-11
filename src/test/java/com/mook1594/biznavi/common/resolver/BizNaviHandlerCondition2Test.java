@@ -1,4 +1,4 @@
-package com.mook1594.biznaviapi.service;
+package com.mook1594.biznavi.common.resolver;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,8 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.mook1594.biznavi.common.model.Location;
-import com.mook1594.biznavi.common.resolver.BizNaviHandler;
-import com.mook1594.biznaviapi.sample.SampleLocation;
+import com.mook1594.biznavi.sample.SampleLocation;
 
 @DisplayName("조건2. GPS의 이동거리가 500m 이내인 경우")
 public class BizNaviHandlerCondition2Test {
