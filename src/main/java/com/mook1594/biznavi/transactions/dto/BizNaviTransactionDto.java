@@ -2,15 +2,19 @@ package com.mook1594.biznavi.transactions.dto;
 
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.google.common.collect.Lists;
 
 import lombok.Builder;
 import lombok.Getter;
 
-
+@Document(collection = "transaction")
 @Getter
 public class BizNaviTransactionDto {
 
+	@Id
 	private String id;
 	private final String stName;
 	private final String glName;
@@ -18,15 +22,6 @@ public class BizNaviTransactionDto {
 	private final boolean finish;
 
 	final List<BizNaviLocationInfoDto> locationInfos;
-
-	// public BizNaviTransactionDto() {
-	// 	this.id = null;
-	// 	this.stName = null;
-	// 	this.glName = null;
-	// 	this.dist = 0;
-	// 	this.finish = false;
-	// 	this.locationInfos = Lists.newArrayList();
-	// }
 
 	/**
 	 * @param transactionId transaction ID
@@ -68,6 +63,10 @@ public class BizNaviTransactionDto {
 				.lng(lng)
 				.build()
 		);
+	}
+
+	public void addLocationInfo(BizNaviLocationInfoDto dto) {
+		locationInfos.add(dto);
 	}
 }
 
