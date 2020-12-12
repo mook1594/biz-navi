@@ -1,0 +1,163 @@
+[{
+  "type": "StartNavi",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151337",
+    "totalDistance": 3219,
+    "startName": "성남시청",
+    "goalName": "카카오모빌리티",
+    "lng": 127.1101377782004,
+    "lat": 37.39422978891167
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151338",
+    "remainDistance": 3056,
+    "lng": 127.12568038662694,
+    "lat": 37.41878581136313,
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151339",
+    "remainDistance": 3180,
+    "lng": 127.12868572452132,
+    "lat": 37.41875130216352
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151340",
+    "remainDistance": 2894,
+    "lng": 127.12872134191839,
+    "lat": 37.41567197130633
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151341",
+    "remainDistance": 2734,
+    "lng": 127.12870491719819,
+    "lat": 37.413909155146264
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151342",
+    "totalDistance": 0,
+    "remainDistance": 2500.0,
+    "lng": 127.1286836182838,
+    "lat": 37.411221411795914
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151343",
+    "remainDistance": 2043.0,
+    "lng": 127.12847964268734,
+    "lat": 37.4054297901921
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151344",
+    "remainDistance": 1822.0,
+    "lng": 127.1283079366306,
+    "lat": 37.40199512287283
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151345",
+    "remainDistance": 1719.0,
+    "lng": 127.12858568041302,
+    "lat": 37.399168773122625
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151346",
+    "remainDistance": 1601.0,
+    "lng": 127.12818885960685,
+    "lat": 37.395561228161
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151347",
+    "totalDistance": 0,
+    "remainDistance": 1468.0,
+    "lng": 127.12616607134565,
+    "lat": 37.39073400488721
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151348",
+    "totalDistance": 0,
+    "remainDistance": 1283.0,
+    "lng": 127.12446236597177,
+    "lat": 37.392312865485
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151349",
+    "totalDistance": 0,
+    "remainDistance": 1173.0,
+    "lng": 127.12237103139118,
+    "lat": 37.3901225990193
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151350",
+    "totalDistance": 0,
+    "remainDistance": 642.0,
+    "lng": 127.11678961233281,
+    "lat": 37.39189208035783
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151351",
+    "totalDistance": 0,
+    "remainDistance": 263.0,
+    "lng": 127.11306866622253,
+    "lat": 37.39380177857995
+  }
+}, {
+  "type": "UpdateLocation",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151352",
+    "totalDistance": 0,
+    "remainDistance": 98.0,
+    "lng": 127.11120819324809,
+    "lat": 37.393974404327736
+  }
+}, {
+  "type": "Close",
+  "locationInfo": {
+    "transId": "navi-0001",
+    "dateTime": "20201212151354",
+    "remainDistance": 0.0,
+    "lng": 127.1101377782004,
+    "lat": 37.39422978891167
+  }
+}]
