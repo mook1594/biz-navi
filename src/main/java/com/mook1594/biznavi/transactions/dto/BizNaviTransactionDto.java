@@ -3,6 +3,7 @@ package com.mook1594.biznavi.transactions.dto;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.google.common.collect.Lists;
@@ -76,15 +77,18 @@ public class BizNaviTransactionDto {
 		locationInfos.add(dto);
 	}
 
+	@Transient
 	public Location getGoalLocation() {
 		return new Location(glLat, glLng);
 	}
 
+	@Transient
 	public Location getLastLocation() {
 		final int lastIndex = locationInfos.size() - 1;
 		return locationInfos.get(lastIndex).getLocation();
 	}
 
+	@Transient
 	public String getLastDatetime() {
 		final int lastIndex = locationInfos.size() - 1;
 		return locationInfos.get(lastIndex).getDatetime();

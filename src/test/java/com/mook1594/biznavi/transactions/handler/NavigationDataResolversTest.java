@@ -28,7 +28,7 @@ public class NavigationDataResolversTest {
 	@Test
 	@DisplayName("네비게이션 시작 데이터 처리")
 	public void startHandler() {
-		final NavigationData data = SampleNavigationData.getNavigationStartData();
+		final NavigationData data = navigationDataList.get(0);
 
 		Optional<BizNaviTransactionDto> dto = NavigationDataHandlerResolver.handle(data, Optional.empty());
 
@@ -41,7 +41,7 @@ public class NavigationDataResolversTest {
 	@DisplayName("네비게이션 업데이트 데이터 처리")
 	public void updateHandlerValid() {
 		final Optional<BizNaviTransactionDto> transaction = find();
-		final NavigationData data = SampleNavigationData.getNavigationUpdateData();
+		final NavigationData data = navigationDataList.get(1);
 
 		Optional<BizNaviTransactionDto> dto = NavigationDataHandlerResolver.handle(data, transaction);
 
@@ -52,10 +52,22 @@ public class NavigationDataResolversTest {
 	}
 
 	@Test
+	@DisplayName("네비게이션 업데이트 데이터 처리")
+	public void updateHandlerInValid() {
+		final Optional<BizNaviTransactionDto> transaction = find();
+		final NavigationData data = SampleNavigationData.getNavigationUpdateData();
+
+		Optional<BizNaviTransactionDto> dto = NavigationDataHandlerResolver.handle(data, transaction);
+
+		assertTrue(dto.isPresent());
+		assertEquals(1, dto.get().getLocationInfos().size());
+	}
+
+	@Test
 	@DisplayName("네비게이션 종료 데이터 처리")
 	public void endHandler() {
 		final Optional<BizNaviTransactionDto> transaction = find();
-		final NavigationData data = SampleNavigationData.getNavigationEndData();
+		final NavigationData data = navigationDataList.get(navigationDataList.size() - 1);
 
 		Optional<BizNaviTransactionDto> dto = NavigationDataHandlerResolver.handle(data, transaction);
 
@@ -66,7 +78,7 @@ public class NavigationDataResolversTest {
 	}
 
 	private Optional<BizNaviTransactionDto> find() {
-		final NavigationData data = SampleNavigationData.getNavigationStartData();
+		final NavigationData data = navigationDataList.get(0);
 		Optional<BizNaviTransactionDto> dto = new StartNavigationDataHandler().resolveNavigationData(data, Optional.empty());
 
 		return dto;

@@ -36,6 +36,8 @@ public class NavigationData {
 			.startPlaceName(location.getStartName())
 			.totalDistance(location.getTotalDistance().doubleValue())
 			.goalPlaceName(location.getGoalName())
+			.goalLatitude(location.getLat().toString())
+			.goalLongitude(location.getLng().toString())
 			.transactionFinished(false)
 			.build();
 	}

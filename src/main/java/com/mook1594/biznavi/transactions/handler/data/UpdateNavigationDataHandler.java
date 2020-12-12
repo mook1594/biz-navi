@@ -5,6 +5,7 @@ import java.util.Optional;
 import com.mook1594.biznavi.common.enums.NavigationDataType;
 import com.mook1594.biznavi.transactions.command.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
+import com.mook1594.biznavi.transactions.handler.valid.ValidHandlerResolver;
 
 public class UpdateNavigationDataHandler implements NavigationDataHandler {
 
@@ -16,12 +17,11 @@ public class UpdateNavigationDataHandler implements NavigationDataHandler {
 	@Override
 	public Optional<BizNaviTransactionDto> resolveNavigationData(NavigationData navigationData,
 		Optional<BizNaviTransactionDto> dto) {
-		if(dto.isPresent()) {
+		if(dto.isPresent() && ValidHandlerResolver.handle(navigationData, dto.get())) {
 			dto.get().addLocationInfo(
 				navigationData.toBizNaviLocationInfoDto()
 			);
-			return dto;
 		}
-		return Optional.empty();
+		return dto;
 	}
 }

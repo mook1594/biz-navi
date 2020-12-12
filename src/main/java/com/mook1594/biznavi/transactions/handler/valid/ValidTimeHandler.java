@@ -26,6 +26,6 @@ public class ValidTimeHandler implements ValidHandler {
 		final double hour = duration.getSeconds() * 1.0 / SECOND_TO_HOUR;
 		log.info("hour: {}, {}", hour, duration.getSeconds());
 
-		return hour <= LIMIT_VALID_TIME_HOUR;
+		return hour <= LIMIT_VALID_TIME_HOUR && 0 <= hour;
 	}
 }
