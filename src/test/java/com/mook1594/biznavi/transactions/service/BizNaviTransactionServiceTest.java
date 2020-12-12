@@ -2,33 +2,55 @@ package com.mook1594.biznavi.transactions.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
 import java.util.Optional;
 
+import org.assertj.core.util.Lists;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.mook1594.biznavi.sample.SampleNavigationData;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mook1594.biznavi.mock.MockBizNaviTransactionRepository;
+import com.mook1594.biznavi.sample.SampleLocation;
 import com.mook1594.biznavi.transactions.command.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 
-@ExtendWith(MockitoExtension.class)
 public class BizNaviTransactionServiceTest {
 
-	@InjectMocks
+	private List<NavigationData> navigationDataList;
+	private List<BizNaviTransactionDto> transactionList = Lists.newArrayList();
+
 	private BizNaviTransactionService service;
 
-	@Test
-	@DisplayName("네비게이션 데이터 받았을때 저장할 Dto로 변환")
-	public void start() {
-		NavigationData navigationData = SampleNavigationData.getNavigationStartDate();
+	private MockBizNaviTransactionRepository mockRepository;
 
-		Optional<BizNaviTransactionDto> transaction = service.validate(navigationData);
-		assertTrue(transaction.isPresent());
-		assertEquals(1, transaction.get().getLocationInfos().size());
-		assertEquals(navigationData.getLocationInfo().getTransId(), transaction.get().getId());
+	@BeforeEach
+	public void init() {
+		mockRepository = new MockBizNaviTransactionRepository();
+		service = new BizNaviTransactionService(mockRepository);
+		navigationDataList = SampleLocation.navigationFromSeongNamCityHallToKakaoMobility();
 	}
 
+	@Test
+	@DisplayName("네비게이션 시작 데이터 처리")
+	public void start() {
+
+		Optional<BizNaviTransactionDto> opTransaction = navigationDataList.stream()
+			.map(d -> service.save(d))
+			.findAny()
+			.orElse(Optional.empty());
+
+		assertTrue(opTransaction.isPresent());
+		System.out.println(getJson(opTransaction.get()));
+	}
+
+	private static String getJson(Object obj) {
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			return objectMapper.writeValueAsString(obj);
+		} catch (Exception ex) {
+			return "";
+		}
+	}
 }

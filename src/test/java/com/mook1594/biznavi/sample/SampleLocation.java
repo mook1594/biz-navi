@@ -81,7 +81,7 @@ public class SampleLocation {
 				datetime.plusSeconds(locationList.size()), locationList.get(locationList.size() - 1))
 		);
 
-		System.out.println(getJson(list));
+		// System.out.println(getJson(list));
 		return list;
 	}
 
