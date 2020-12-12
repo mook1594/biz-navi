@@ -1,10 +1,18 @@
 package com.mook1594.biznavi.sample;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Lists;
+import com.mook1594.biznavi.common.enums.NavigationDataType;
 import com.mook1594.biznavi.common.model.Location;
+import com.mook1594.biznavi.common.model.LocationDistance;
+import com.mook1594.biznavi.common.utils.DateTimeUtils;
+import com.mook1594.biznavi.transactions.command.NavigationData;
+import com.mook1594.biznavi.transactions.command.NavigationLocationInfo;
 
 public class SampleLocation {
 
@@ -28,7 +36,7 @@ public class SampleLocation {
 		return new Location("37.393974404327736", "127.11120819324809");
 	}
 
-	public static List<Location> routeFromKakaoMobilityToSeongNamCityHall() {
+	public static List<Location> routeFromSeongNamCityHallToKakaoMobility() {
 		return new ArrayList<>(Arrays.asList(
 			seongnamCityHall(),
 			new Location("37.41878581136313", "127.12568038662694"),
@@ -48,5 +56,87 @@ public class SampleLocation {
 			pangyoStation(),
 			kakaoMobility()
 		));
+	}
+
+	public static List<NavigationData> navigationFromSeongNamCityHallToKakaoMobility() {
+		final List<NavigationData> list = Lists.newArrayList();
+
+		final String transactionId = "navi-0001";
+		final LocalDateTime datetime = LocalDateTime.now();
+
+		list.add(
+			getNaviStartDataWithIdAndDatetime(transactionId, datetime)
+		);
+
+		List<Location> locationList = routeFromSeongNamCityHallToKakaoMobility();
+		for(int i = 1; i < locationList.size() - 1; i++) {
+			list.add(
+				getNaviUpdateDataWithIdAndDatetimeAndLocation(transactionId,
+					datetime.plusSeconds(i), locationList.get(i))
+			);
+		}
+
+		list.add(
+			getNaviEndDataWithIdAndDatetimeAndLocation(transactionId,
+				datetime.plusSeconds(locationList.size()), locationList.get(locationList.size() - 1))
+		);
+
+		System.out.println(getJson(list));
+		return list;
+	}
+
+	private static String getJson(Object obj) {
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			return objectMapper.writeValueAsString(obj);
+		} catch (Exception ex) {
+			return "";
+		}
+	}
+
+	private static NavigationData getNaviStartDataWithIdAndDatetime(final String id, final LocalDateTime datetime) {
+		return NavigationData.builder()
+			.type(NavigationDataType.START_NAVI)
+			.locationInformation(new NavigationLocationInfo(
+				id,
+				DateTimeUtils.toString(datetime),
+				new LocationDistance(seongnamCityHall(), kakaoMobility()).distanceForMeter().intValue(),
+				"성남시청",
+				"카카오모빌리티",
+				kakaoMobility().getLatitude().toString(),
+				kakaoMobility().getLongitude().toString()
+			)).build();
+	}
+
+	private static NavigationData getNaviUpdateDataWithIdAndDatetimeAndLocation(
+		final String id,
+		final LocalDateTime dateTime,
+		final Location location
+	) {
+		return NavigationData.builder()
+			.type(NavigationDataType.UPDATE_LOCATION)
+			.locationInformation(new NavigationLocationInfo(
+				id,
+				DateTimeUtils.toString(dateTime),
+				new LocationDistance(location, kakaoMobility()).distanceForMeter().intValue(),
+				location.getLatitude().toString(),
+				location.getLongitude().toString()
+			)).build();
+	}
+
+	private static NavigationData getNaviEndDataWithIdAndDatetimeAndLocation(
+		final String id,
+		final LocalDateTime dateTime,
+		final Location location
+	) {
+		return NavigationData.builder()
+			.type(NavigationDataType.END_NAVI)
+			.locationInformation(new NavigationLocationInfo(
+				id,
+				DateTimeUtils.toString(dateTime),
+				new LocationDistance(location, kakaoMobility()).distanceForMeter().intValue(),
+				location.getLatitude().toString(),
+				location.getLongitude().toString()
+			)).build();
 	}
 }

@@ -5,7 +5,7 @@ import com.mook1594.biznavi.transactions.command.NavigationData;
 import com.mook1594.biznavi.transactions.command.NavigationLocationInfo;
 
 public class SampleNavigationData {
-	public static NavigationData getNavigationStartDate() {
+	public static NavigationData getNavigationStartData() {
 		return new NavigationData(NavigationDataType.START_NAVI,
 			new NavigationLocationInfo(
 				"kakao20201113-0001",
@@ -18,7 +18,7 @@ public class SampleNavigationData {
 			));
 	}
 
-	public static NavigationData getNavigationUpdateDate() {
+	public static NavigationData getNavigationUpdateData() {
 		return new NavigationData(NavigationDataType.UPDATE_LOCATION,
 			new NavigationLocationInfo (
 				"kakao20201113-0001",
@@ -29,7 +29,7 @@ public class SampleNavigationData {
 			));
 	}
 
-	public static NavigationData getNavigationEndDate() {
+	public static NavigationData getNavigationEndData() {
 		return new NavigationData(NavigationDataType.END_NAVI,
 			new NavigationLocationInfo (
 				"kakao20201113-0001",
