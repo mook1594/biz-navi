@@ -11,6 +11,7 @@ import com.mook1594.biznavi.common.model.Location;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 @Document(collection = "transaction")
 @Getter
@@ -23,7 +24,9 @@ public class BizNaviTransactionDto {
 	private final double dist;
 	private final String glLat;
 	private final String glLng;
-	private final boolean finish;
+
+	@Setter
+	private boolean finish;
 
 	final List<BizNaviLocationInfoDto> locationInfos;
 

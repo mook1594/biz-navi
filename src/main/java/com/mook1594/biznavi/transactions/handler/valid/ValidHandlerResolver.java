@@ -18,7 +18,8 @@ public class ValidHandlerResolver {
 		handlerMap.put(NavigationDataType.START_NAVI, Lists.newArrayList());
 		handlerMap.put(NavigationDataType.UPDATE_LOCATION, Lists.newArrayList(
 			new ValidMoveHandler(),
-			new ValidTimeHandler()
+			new ValidTimeHandler(),
+			new ValidFinishHandler()
 		));
 		handlerMap.put(NavigationDataType.END_NAVI, Lists.newArrayList(
 			new ValidGoalHandler()
