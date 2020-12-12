@@ -1,11 +1,13 @@
 package com.mook1594.biznavi.transactions.dto;
 
+import com.mook1594.biznavi.common.model.Location;
+
 import lombok.Builder;
 import lombok.Getter;
 
-@Getter
-public class BizNaviLocationInfoDto {
 
+public class BizNaviLocationInfoDto {
+	@Getter
 	private final String datetime;
 	private final String lat;
 	private final String lng;
@@ -19,5 +21,9 @@ public class BizNaviLocationInfoDto {
 		this.datetime = datetime;
 		this.lat = lat;
 		this.lng = lng;
+	}
+
+	public Location getLocation() {
+		return new Location(lat, lng);
 	}
 }

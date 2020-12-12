@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import com.mook1594.biznavi.sample.SampleNavigationData;
 import com.mook1594.biznavi.transactions.command.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
+import com.mook1594.biznavi.transactions.handler.data.NavigationDataHandlerResolver;
+import com.mook1594.biznavi.transactions.handler.data.StartNavigationDataHandler;
 
 public class NavigationDataResolversTest {
 
@@ -18,7 +20,7 @@ public class NavigationDataResolversTest {
 	public void startHandler() {
 		final NavigationData data = SampleNavigationData.getNavigationStartDate();
 
-		Optional<BizNaviTransactionDto> dto = NavigationDataHandlerManager.handle(data, Optional.empty());
+		Optional<BizNaviTransactionDto> dto = NavigationDataHandlerResolver.handle(data, Optional.empty());
 
 		assertTrue(dto.isPresent());
 		assertEquals(1, dto.get().getLocationInfos().size());
@@ -31,13 +33,12 @@ public class NavigationDataResolversTest {
 		final Optional<BizNaviTransactionDto> transaction = find();
 		final NavigationData data = SampleNavigationData.getNavigationUpdateDate();
 
-		Optional<BizNaviTransactionDto> dto = NavigationDataHandlerManager.handle(data, transaction);
+		Optional<BizNaviTransactionDto> dto = NavigationDataHandlerResolver.handle(data, transaction);
 
 		assertTrue(dto.isPresent());
 		assertEquals(2, dto.get().getLocationInfos().size());
 		assertEquals(data.getLocationInfo().getTransId(), dto.get().getId());
-		assertEquals(data.getLocationInfo().getLat().toString(), dto.get().getLocationInfos().get(1).getLat());
-		assertEquals(data.getLocationInfo().getLng().toString(), dto.get().getLocationInfos().get(1).getLng());
+		assertEquals(data.getLocationInfo().getLocation(), dto.get().getLocationInfos().get(1).getLocation());
 	}
 
 	@Test
@@ -46,13 +47,12 @@ public class NavigationDataResolversTest {
 		final Optional<BizNaviTransactionDto> transaction = find();
 		final NavigationData data = SampleNavigationData.getNavigationEndDate();
 
-		Optional<BizNaviTransactionDto> dto = NavigationDataHandlerManager.handle(data, transaction);
+		Optional<BizNaviTransactionDto> dto = NavigationDataHandlerResolver.handle(data, transaction);
 
 		assertTrue(dto.isPresent());
 		assertEquals(2, dto.get().getLocationInfos().size());
 		assertEquals(data.getLocationInfo().getTransId(), dto.get().getId());
-		assertEquals(data.getLocationInfo().getLat().toString(), dto.get().getLocationInfos().get(1).getLat());
-		assertEquals(data.getLocationInfo().getLng().toString(), dto.get().getLocationInfos().get(1).getLng());
+		assertEquals(data.getLocationInfo().getLocation(), dto.get().getLocationInfos().get(1).getLocation());
 	}
 
 	private Optional<BizNaviTransactionDto> find() {

@@ -73,4 +73,6 @@ public class NavigationLocationInfo {
 	public Location getLocation() {
 		return new Location(lat, lng);
 	}
+
+
 }

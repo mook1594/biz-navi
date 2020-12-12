@@ -1,9 +1,9 @@
 package com.mook1594.biznavi.transactions.handler.data;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.google.common.collect.Lists;
 import com.mook1594.biznavi.transactions.command.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 
@@ -12,10 +12,11 @@ public class NavigationDataHandlerResolver {
 	private static List<NavigationDataHandler> handlers;
 
 	static {
-		handlers = new ArrayList<>();
-		handlers.add(new StartNavigationDataHandler());
-		handlers.add(new UpdateNavigationDataHandler());
-		handlers.add(new EndNavigationDataHandler());
+		handlers = Lists.newArrayList(
+			new StartNavigationDataHandler(),
+			new UpdateNavigationDataHandler(),
+			new EndNavigationDataHandler()
+		);
 	}
 
 	public static List<NavigationDataHandler> getHandlers() {
@@ -23,7 +24,7 @@ public class NavigationDataHandlerResolver {
 	}
 
 	public static Optional<BizNaviTransactionDto> handle(final NavigationData data, final Optional<BizNaviTransactionDto> transaction) {
-		return NavigationDataHandlerResolver.getHandlers().stream()
+		return handlers.stream()
 			.filter(h -> h.isType(data.getType()))
 			.map(h -> h.resolveNavigationData(data, transaction))
 			.findFirst()
