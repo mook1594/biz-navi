@@ -20,7 +20,8 @@ public class BizNaviTransactionService {
 	public Optional<BizNaviTransactionDto> save(final NavigationData navigationData) {
 		final String transactionId = navigationData.getLocation().getTransId();
 		final Optional<BizNaviTransactionDto> opDto = repository.findById(transactionId);
+		Optional<BizNaviTransactionDto> opTransaction = NavigationDataHandlerResolver.handle(navigationData, opDto);
 
-		return NavigationDataHandlerResolver.handle(navigationData, opDto);
+		return Optional.ofNullable(repository.save(opTransaction.get()));
 	}
 }

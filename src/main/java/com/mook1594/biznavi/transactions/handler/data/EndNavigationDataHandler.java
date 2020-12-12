@@ -21,8 +21,9 @@ public class EndNavigationDataHandler implements NavigationDataHandler {
 			dto.get().addLocationInfo(
 				navigationData.toBizNaviLocationInfoDto()
 			);
-			dto.get().setFinish(true);
+			dto.get().setWorkAccept(true);
 		}
+		dto.get().setFinish(true);
 		return dto;
 	}
 }

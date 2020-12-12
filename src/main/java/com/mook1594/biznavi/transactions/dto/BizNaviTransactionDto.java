@@ -27,6 +27,8 @@ public class BizNaviTransactionDto {
 
 	@Setter
 	private boolean finish;
+	@Setter
+	private boolean workAccept;
 
 	final List<BizNaviLocationInfoDto> locationInfos;
 

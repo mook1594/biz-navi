@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
-import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,10 +19,7 @@ import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 public class BizNaviTransactionServiceTest {
 
 	private List<NavigationData> navigationDataList;
-	private List<BizNaviTransactionDto> transactionList = Lists.newArrayList();
-
 	private BizNaviTransactionService service;
-
 	private MockBizNaviTransactionRepository mockRepository;
 
 	@BeforeEach
@@ -36,13 +33,14 @@ public class BizNaviTransactionServiceTest {
 	@DisplayName("네비게이션 시작 데이터 처리")
 	public void start() {
 
-		Optional<BizNaviTransactionDto> opTransaction = navigationDataList.stream()
+		List<Optional<BizNaviTransactionDto>> listTransaction = navigationDataList.stream()
 			.map(d -> service.save(d))
-			.findAny()
-			.orElse(Optional.empty());
+			.collect(Collectors.toList());
+
+		Optional<BizNaviTransactionDto> opTransaction = listTransaction.get(listTransaction.size() - 1);
 
 		assertTrue(opTransaction.isPresent());
-		System.out.println(getJson(opTransaction.get()));
+		assertTrue(opTransaction.get().isWorkAccept());
 	}
 
 	private static String getJson(Object obj) {

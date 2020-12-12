@@ -1,6 +1,8 @@
 package com.mook1594.biznavi.mock;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.data.domain.Example;
@@ -12,9 +14,12 @@ import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 import com.mook1594.biznavi.transactions.repository.BizNaviTransactionRepository;
 
 public class MockBizNaviTransactionRepository implements BizNaviTransactionRepository {
+
+	private static final Map<String, BizNaviTransactionDto> map = new HashMap<>();
+
 	@Override
 	public <S extends BizNaviTransactionDto> S save(S s) {
-		return null;
+		return (S) map.put(s.getId(), s);
 	}
 
 	@Override
@@ -24,7 +29,7 @@ public class MockBizNaviTransactionRepository implements BizNaviTransactionRepos
 
 	@Override
 	public Optional<BizNaviTransactionDto> findById(String s) {
-		return Optional.empty();
+		return Optional.ofNullable(map.get(s));
 	}
 
 	@Override

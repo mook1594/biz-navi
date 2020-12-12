@@ -45,6 +45,7 @@ public class NavigationData {
 	public BizNaviLocationInfoDto toBizNaviLocationInfoDto() {
 		return BizNaviLocationInfoDto.builder()
 			.datetime(location.getDateTime())
+			.remainDist(location.getRemainDistance().doubleValue())
 			.lat(location.getLat().toString())
 			.lng(location.getLng().toString())
 			.build();
