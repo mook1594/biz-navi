@@ -30,7 +30,7 @@ public class BizNaviHandlerCondition2Test {
 	@Test
 	@DisplayName("GPS 이동거리가 500m 초과")
 	public void moveDistance1() {
-		final List<Location> routeLocations = SampleLocation.routeFromKakaoMobilityToSeongNamCityHall();
+		final List<Location> routeLocations = SampleLocation.routeFromSeongNamCityHallToKakaoMobility();
 		final Location arriveLocation = routeLocations.get(0);
 		final Location goalLocation = routeLocations.get(3);
 
@@ -45,7 +45,7 @@ public class BizNaviHandlerCondition2Test {
 	@Test
 	@DisplayName("GPS 이동거리가 500m 이내")
 	public void moveDistance2() {
-		final List<Location> routeLocations = SampleLocation.routeFromKakaoMobilityToSeongNamCityHall();
+		final List<Location> routeLocations = SampleLocation.routeFromSeongNamCityHallToKakaoMobility();
 		final Location arriveLocation = routeLocations.get(0);
 		final Location goalLocation = routeLocations.get(1);
 

@@ -19,6 +19,10 @@ public class DateTimeUtils {
 		return LocalDateTime.parse(datetimeStringWithZeroPadding, formatter());
 	}
 
+	public static String toString(final LocalDateTime datetime) {
+		return datetime.format(DateTimeFormatter.ofPattern(DEFAULT_DATETIME_FORMAT));
+	}
+
 	private static DateTimeFormatter formatter() {
 		return new DateTimeFormatterBuilder()
 			.appendPattern(DEFAULT_DATETIME_FORMAT)
