@@ -27,6 +27,8 @@
 
 ### 데이터 저장
 - 로직처리된 유효한 데이터는 MongoDB로 저장 
+    database: biz_navi, collection: transaction
+    [DB 연결정보](./src/main/resources/application.properties)
     [결과 저장 sample](./src/test/resources/ResultData.json)  
     [관련 Dto](./src/main/java/com/mook1594/biznavi/transactions/dto/TransactionDto.java)
 - Transaction 최종 완료처리된 데이터는 RDB로 저장 (정산 데이터 활용) - **<미구현>**
