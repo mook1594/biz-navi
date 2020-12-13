@@ -18,10 +18,14 @@ public class BizNaviTransactionService {
 	private final BizNaviTransactionRepository repository;
 
 	public Optional<BizNaviTransactionDto> save(final NavigationData navigationData) {
+
 		final String transactionId = navigationData.getLocation().getTransId();
 		final Optional<BizNaviTransactionDto> opDto = repository.findById(transactionId);
 		Optional<BizNaviTransactionDto> opTransaction = NavigationDataHandlerResolver.handle(navigationData, opDto);
 
-		return Optional.ofNullable(repository.save(opTransaction.get()));
+		if(opTransaction.isPresent()) {
+			return Optional.ofNullable(repository.save(opTransaction.get()));
+		}
+		return Optional.empty();
 	}
 }
