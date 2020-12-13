@@ -33,12 +33,11 @@ public class NavigationData {
 	public BizNaviTransactionDto toBizNaviTransactionDto() {
 		return BizNaviTransactionDto.builder()
 			.transactionId(location.getTransId())
-			.startPlaceName(location.getStartName())
+			.startName(location.getStartName())
 			.totalDistance(location.getTotalDistance().doubleValue())
-			.goalPlaceName(location.getGoalName())
-			.goalLatitude(location.getLat().toString())
-			.goalLongitude(location.getLng().toString())
-			.transactionFinished(false)
+			.goalName(location.getGoalName())
+			.goalLat(location.getLat().toString())
+			.goalLng(location.getLng().toString())
 			.build();
 	}
 

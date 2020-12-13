@@ -19,7 +19,7 @@ public class MockBizNaviTransactionRepository implements BizNaviTransactionRepos
 
 	@Override
 	public <S extends BizNaviTransactionDto> S save(S s) {
-		return (S) map.put(s.getId(), s);
+		return (S) map.put(s.getTransactionId(), s);
 	}
 
 	@Override

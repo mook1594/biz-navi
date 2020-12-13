@@ -34,7 +34,7 @@ public class NavigationDataResolversTest {
 
 		assertTrue(dto.isPresent());
 		assertEquals(1, dto.get().getLocationInfos().size());
-		assertEquals(data.getLocation().getTransId(), dto.get().getId());
+		assertEquals(data.getLocation().getTransId(), dto.get().getTransactionId());
 	}
 
 	@Test
@@ -47,7 +47,7 @@ public class NavigationDataResolversTest {
 
 		assertTrue(dto.isPresent());
 		assertEquals(2, dto.get().getLocationInfos().size());
-		assertEquals(data.getLocation().getTransId(), dto.get().getId());
+		assertEquals(data.getLocation().getTransId(), dto.get().getTransactionId());
 		assertEquals(data.getLocation().getLocation(), dto.get().getLocationInfos().get(1).getLocation());
 	}
 
@@ -73,7 +73,7 @@ public class NavigationDataResolversTest {
 
 		assertTrue(dto.isPresent());
 		assertEquals(2, dto.get().getLocationInfos().size());
-		assertEquals(data.getLocation().getTransId(), dto.get().getId());
+		assertEquals(data.getLocation().getTransId(), dto.get().getTransactionId());
 		assertEquals(data.getLocation().getLocation(), dto.get().getLocationInfos().get(1).getLocation());
 	}
 

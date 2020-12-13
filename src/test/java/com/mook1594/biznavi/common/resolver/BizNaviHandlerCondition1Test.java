@@ -68,8 +68,8 @@ public class BizNaviHandlerCondition1Test {
 
 	private BizNaviTransactionDto getTransactionDtoWithLocation(final Location location) {
 		final BizNaviTransactionDto bizNaviTransactionDto = BizNaviTransactionDto.builder()
-			.glLat(location.getLatitude().toString())
-			.glLng(location.getLongitude().toString())
+			.goalLat(location.getLatitude().toString())
+			.goalLng(location.getLongitude().toString())
 			.build();
 		return bizNaviTransactionDto;
 	}

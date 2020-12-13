@@ -1,6 +1,6 @@
 [{
   "type": "StartNavi",
-  "locationInfo": {
+  "location": {
     "transId": "navi-0001",
     "dateTime": "20201212151337",
     "totalDistance": 3219,
@@ -11,16 +11,16 @@
   }
 }, {
   "type": "UpdateLocation",
-  "locationInfo": {
+  "location": {
     "transId": "navi-0001",
     "dateTime": "20201212151338",
     "remainDistance": 3056,
     "lng": 127.12568038662694,
-    "lat": 37.41878581136313,
+    "lat": 37.41878581136313
   }
 }, {
   "type": "UpdateLocation",
-  "locationInfo": {
+  "location": {
     "transId": "navi-0001",
     "dateTime": "20201212151339",
     "remainDistance": 3180,
@@ -29,7 +29,7 @@
   }
 }, {
   "type": "UpdateLocation",
-  "locationInfo": {
+  "location": {
     "transId": "navi-0001",
     "dateTime": "20201212151340",
     "remainDistance": 2894,
@@ -38,7 +38,7 @@
   }
 }, {
   "type": "UpdateLocation",
-  "locationInfo": {
+  "location": {
     "transId": "navi-0001",
     "dateTime": "20201212151341",
     "remainDistance": 2734,
@@ -47,7 +47,7 @@
   }
 }, {
   "type": "UpdateLocation",
-  "locationInfo": {
+  "location": {
     "transId": "navi-0001",
     "dateTime": "20201212151342",
     "totalDistance": 0,
