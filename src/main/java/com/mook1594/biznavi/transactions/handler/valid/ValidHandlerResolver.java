@@ -7,7 +7,7 @@ import java.util.Map;
 import com.google.common.collect.Lists;
 import com.mook1594.biznavi.common.enums.NavigationDataType;
 import com.mook1594.biznavi.transactions.domain.NavigationData;
-import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
+import com.mook1594.biznavi.transactions.dto.TransactionDto;
 
 public class ValidHandlerResolver {
 
@@ -30,7 +30,7 @@ public class ValidHandlerResolver {
 		return handlerMap.get(type);
 	}
 
-	public static boolean handle(final NavigationData navigationData, final BizNaviTransactionDto transactionDto) {
+	public static boolean handle(final NavigationData navigationData, final TransactionDto transactionDto) {
 		return getHandlers(navigationData.getType()).stream()
 			.allMatch(h -> h.valid(navigationData, transactionDto));
 	}

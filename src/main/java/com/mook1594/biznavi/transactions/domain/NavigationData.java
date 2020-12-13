@@ -3,8 +3,8 @@ package com.mook1594.biznavi.transactions.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.mook1594.biznavi.common.enums.NavigationDataType;
-import com.mook1594.biznavi.transactions.dto.BizNaviLocationInfoDto;
-import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
+import com.mook1594.biznavi.transactions.dto.LocationInfoDto;
+import com.mook1594.biznavi.transactions.dto.TransactionDto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -30,8 +30,8 @@ public class NavigationData {
 		this.location = locationInformation;
 	}
 
-	public BizNaviTransactionDto toBizNaviTransactionDto() {
-		return BizNaviTransactionDto.builder()
+	public TransactionDto toBizNaviTransactionDto() {
+		return TransactionDto.builder()
 			.transactionId(location.getTransId())
 			.startName(location.getStartName())
 			.totalDistance(location.getTotalDistance().doubleValue())
@@ -41,8 +41,8 @@ public class NavigationData {
 			.build();
 	}
 
-	public BizNaviLocationInfoDto toBizNaviLocationInfoDto() {
-		return BizNaviLocationInfoDto.builder()
+	public LocationInfoDto toBizNaviLocationInfoDto() {
+		return LocationInfoDto.builder()
 			.datetime(location.getDateTime())
 			.remainDist(location.getRemainDistance().doubleValue())
 			.lat(location.getLat().toString())

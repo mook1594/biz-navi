@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import com.mook1594.biznavi.sample.SampleLocation;
 import com.mook1594.biznavi.transactions.domain.NavigationData;
-import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
+import com.mook1594.biznavi.transactions.dto.TransactionDto;
 import com.mook1594.biznavi.transactions.handler.data.EndNavigationDataHandler;
 import com.mook1594.biznavi.transactions.handler.data.StartNavigationDataHandler;
 import com.mook1594.biznavi.transactions.handler.data.UpdateNavigationDataHandler;
@@ -35,7 +35,7 @@ public class ValidFinishHandlerTest {
 	@Test
 	@DisplayName("종료 후 데이터 저장안되는지 확인")
 	public void finish() {
-		Optional<BizNaviTransactionDto> transactionDto = find();
+		Optional<TransactionDto> transactionDto = find();
 		NavigationData lastData = navigationDataList.get(navigationDataList.size() - 1);
 		endHandler.resolveNavigationData(lastData, transactionDto);
 		updateHandler.resolveNavigationData(navigationDataList.get(4), transactionDto);
@@ -43,9 +43,9 @@ public class ValidFinishHandlerTest {
 		assertEquals(4, transactionDto.get().getLocationInfos().size());
 	}
 
-	private Optional<BizNaviTransactionDto> find() {
+	private Optional<TransactionDto> find() {
 
-		Optional<BizNaviTransactionDto> dto = startHandler.resolveNavigationData(navigationDataList.get(0),
+		Optional<TransactionDto> dto = startHandler.resolveNavigationData(navigationDataList.get(0),
 			Optional.empty());
 
 		updateHandler.resolveNavigationData(navigationDataList.get(1), dto);

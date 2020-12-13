@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mook1594.biznavi.mock.MockBizNaviTransactionRepository;
 import com.mook1594.biznavi.sample.SampleLocation;
 import com.mook1594.biznavi.transactions.domain.NavigationData;
-import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
+import com.mook1594.biznavi.transactions.dto.TransactionDto;
 
 public class BizNaviTransactionServiceTest {
 
@@ -33,11 +33,11 @@ public class BizNaviTransactionServiceTest {
 	@DisplayName("네비게이션 시작 데이터 처리")
 	public void start() {
 
-		List<Optional<BizNaviTransactionDto>> listTransaction = navigationDataList.stream()
+		List<Optional<TransactionDto>> listTransaction = navigationDataList.stream()
 			.map(d -> service.save(d))
 			.collect(Collectors.toList());
 
-		Optional<BizNaviTransactionDto> opTransaction = listTransaction.get(listTransaction.size() - 1);
+		Optional<TransactionDto> opTransaction = listTransaction.get(listTransaction.size() - 1);
 
 		assertTrue(opTransaction.isPresent());
 		assertTrue(opTransaction.get().isWorkAccept());

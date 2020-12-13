@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.google.common.collect.Lists;
 import com.mook1594.biznavi.transactions.domain.NavigationData;
-import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
+import com.mook1594.biznavi.transactions.dto.TransactionDto;
 
 public class NavigationDataHandlerResolver {
 
@@ -23,7 +23,7 @@ public class NavigationDataHandlerResolver {
 		return handlers;
 	}
 
-	public static Optional<BizNaviTransactionDto> handle(final NavigationData data, final Optional<BizNaviTransactionDto> transaction) {
+	public static Optional<TransactionDto> handle(final NavigationData data, final Optional<TransactionDto> transaction) {
 		return handlers.stream()
 			.filter(h -> h.isType(data.getType()))
 			.map(h -> h.resolveNavigationData(data, transaction))

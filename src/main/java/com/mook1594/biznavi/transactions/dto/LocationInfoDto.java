@@ -8,7 +8,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 
-public class BizNaviLocationInfoDto {
+public class LocationInfoDto {
 
 	@Getter private final String datetime;
 	@Getter private final double remainDist;
@@ -16,7 +16,7 @@ public class BizNaviLocationInfoDto {
 	@Getter private final String lat;
 
 	@Builder
-	public BizNaviLocationInfoDto(
+	public LocationInfoDto(
 		final String datetime,
 		final double remainDist,
 		final String lat,

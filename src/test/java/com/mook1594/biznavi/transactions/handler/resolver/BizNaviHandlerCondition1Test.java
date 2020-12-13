@@ -1,4 +1,4 @@
-package com.mook1594.biznavi.common.resolver;
+package com.mook1594.biznavi.transactions.handler.resolver;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,7 +12,7 @@ import com.mook1594.biznavi.sample.SampleLocation;
 import com.mook1594.biznavi.sample.SampleNavigationData;
 import com.mook1594.biznavi.transactions.domain.NavigationData;
 import com.mook1594.biznavi.transactions.domain.NavigationLocationInfo;
-import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
+import com.mook1594.biznavi.transactions.dto.TransactionDto;
 import com.mook1594.biznavi.transactions.handler.valid.ValidGoalHandler;
 import com.mook1594.biznavi.transactions.handler.valid.ValidHandler;
 
@@ -33,7 +33,7 @@ public class BizNaviHandlerCondition1Test {
 		Location arriveLocation = arrive.getLocation().getLocation();
 		Location goalLocation = SampleLocation.kakaoMobility();
 
-		final BizNaviTransactionDto transactionDto = getTransactionDtoWithLocation(goalLocation);
+		final TransactionDto transactionDto = getTransactionDtoWithLocation(goalLocation);
 		final NavigationData navigationData = getNavigationDataWithLocation(arriveLocation);
 
 		boolean result = validHandler.valid(navigationData, transactionDto);
@@ -47,7 +47,7 @@ public class BizNaviHandlerCondition1Test {
 		Location arriveLocation = SampleLocation.yatapStation();
 		Location goalLocation = SampleLocation.kakaoMobility();
 
-		final BizNaviTransactionDto transactionDto = getTransactionDtoWithLocation(goalLocation);
+		final TransactionDto transactionDto = getTransactionDtoWithLocation(goalLocation);
 		final NavigationData navigationData = getNavigationDataWithLocation(arriveLocation);
 
 		boolean result = validHandler.valid(navigationData, transactionDto);
@@ -66,8 +66,8 @@ public class BizNaviHandlerCondition1Test {
 		);
 	}
 
-	private BizNaviTransactionDto getTransactionDtoWithLocation(final Location location) {
-		final BizNaviTransactionDto bizNaviTransactionDto = BizNaviTransactionDto.builder()
+	private TransactionDto getTransactionDtoWithLocation(final Location location) {
+		final TransactionDto bizNaviTransactionDto = TransactionDto.builder()
 			.goalLat(location.getLatitude().toString())
 			.goalLng(location.getLongitude().toString())
 			.build();

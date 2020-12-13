@@ -18,7 +18,7 @@ import lombok.Setter;
 
 @Document(collection = "transaction")
 @Getter
-public class BizNaviTransactionDto extends AbstractCommonDto {
+public class TransactionDto extends AbstractCommonDto {
 
 	@Id
 	private String transactionId;
@@ -34,7 +34,7 @@ public class BizNaviTransactionDto extends AbstractCommonDto {
 	@Setter
 	private boolean workAccept;
 
-	private final List<BizNaviLocationInfoDto> locationInfos;
+	private final List<LocationInfoDto> locationInfos;
 
 	/**
 	 * @param transactionId 트렌젝션 ID
@@ -48,7 +48,7 @@ public class BizNaviTransactionDto extends AbstractCommonDto {
 	 * @param locationInfos 이동 경로 정보
 	 */
 	@Builder
-	public BizNaviTransactionDto(
+	public TransactionDto(
 		final String transactionId,
 		final String startName,
 		final String goalName,
@@ -57,7 +57,7 @@ public class BizNaviTransactionDto extends AbstractCommonDto {
 		final String goalLng,
 		final boolean finish,
 		final boolean workAccept,
-		final List<BizNaviLocationInfoDto> locationInfos
+		final List<LocationInfoDto> locationInfos
 	) {
 		super();
 		this.transactionId = transactionId;
@@ -82,7 +82,7 @@ public class BizNaviTransactionDto extends AbstractCommonDto {
 		final String lng
 	) {
 		locationInfos.add(
-			BizNaviLocationInfoDto.builder()
+			LocationInfoDto.builder()
 				.datetime(datetime)
 				.lat(lat)
 				.lng(lng)
@@ -90,7 +90,7 @@ public class BizNaviTransactionDto extends AbstractCommonDto {
 		);
 	}
 
-	public void addLocationInfo(BizNaviLocationInfoDto dto) {
+	public void addLocationInfo(LocationInfoDto dto) {
 		locationInfos.add(dto);
 	}
 
