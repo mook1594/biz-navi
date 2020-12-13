@@ -1,72 +1,66 @@
 package com.mook1594.biznavi.transactions.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.web.reactive.function.client.WebClient;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mook1594.biznavi.common.mapping.MvcMapping;
 import com.mook1594.biznavi.sample.SampleNavigationData;
+import com.mook1594.biznavi.transactions.command.LocationInfoCommand;
+import com.mook1594.biznavi.transactions.command.TransactionCommand;
 import com.mook1594.biznavi.transactions.domain.NavigationData;
-import com.mook1594.biznavi.transactions.repository.TransactionRepository;
-import com.mook1594.biznavi.transactions.service.TransactionService;
+import com.mook1594.biznavi.transactions.dto.TransactionDto;
 
-// @EnableMongoRepositories
-// @ExtendWith(SpringExtension.class)
-// @WebMvcTest({BizNaviTransactionController.class, BizNaviTransactionService.class, BizNaviTransactionRepository.class, MockBizNaviTransactionRepository.class})
+@ExtendWith(SpringExtension.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class BizNaviTransactionControllerTest {
 
-	@Autowired
-	private WebApplicationContext wac;
-	@Autowired
-	private TransactionService service;
-
-	private TransactionRepository repository;
-
-	private MockMvc mockMvc;
-
-	// @Autowired
-	// UserController userController;
-	//
-	// private MockMvc mockMvc;
-	//
-	// @Before
-	// public void setUp() throws Exception {
-	// 	mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
-	// }
+	private WebClient webClient;
 
 	@BeforeEach
 	void init() {
-		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+		webClient = WebClient.create("http://localhost:8080");
 	}
 
-	@Disabled
 	@Test
 	public void test() throws Exception{
-		NavigationData navigationData = SampleNavigationData.getNavigationStartData();
+		TransactionCommand command = getCommand();
 
-		mockMvc.perform(MockMvcRequestBuilders
-			.post(MvcMapping.Url.TRANSACTION)
-			.content(getJson(navigationData))
+		TransactionDto dto = webClient.post()
+			.uri(MvcMapping.Url.TRANSACTION)
 			.contentType(MediaType.APPLICATION_JSON)
-			.accept(MediaType.APPLICATION_JSON))
-			.andExpect(status().is2xxSuccessful());
+			.accept(MediaType.APPLICATION_JSON)
+			.bodyValue(command)
+			.retrieve()
+			.bodyToMono(TransactionDto.class)
+			.flux()
+			.toStream()
+			.findFirst()
+			.orElse(null);
+
+		assertEquals(command.getLocation().getTransId(), dto.getTransactionId());
 	}
 
-	private static String getJson(Object obj) {
-		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			return objectMapper.writeValueAsString(obj);
-		} catch (Exception ex) {
-			return "";
-		}
+	private TransactionCommand getCommand() {
+		NavigationData navigationData = SampleNavigationData.getNavigationStartData();
+		TransactionCommand command = new TransactionCommand();
+		command.setType(navigationData.getType().getCode());
+		command.setLocation(new LocationInfoCommand());
+		command.getLocation().setTransId(navigationData.getLocation().getTransId());
+		command.getLocation().setDateTime(navigationData.getLocation().getTransId());
+		command.getLocation().setTotalDistance(navigationData.getLocation().getTotalDistance().intValue());
+		command.getLocation().setRemainDistance(navigationData.getLocation().getRemainDistance().intValue());
+		command.getLocation().setStartName(navigationData.getLocation().getStartName());
+		command.getLocation().setGoalName(navigationData.getLocation().getGoalName());
+		command.getLocation().setLat(navigationData.getLocation().getLat().toString());
+		command.getLocation().setLng(navigationData.getLocation().getLng().toString());
+
+		return command;
 	}
 }

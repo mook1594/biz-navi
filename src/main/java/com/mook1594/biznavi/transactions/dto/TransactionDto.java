@@ -1,5 +1,6 @@
 package com.mook1594.biznavi.transactions.dto;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,6 +9,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.google.common.collect.Lists;
 import com.mook1594.biznavi.common.dto.AbstractCommonDto;
 import com.mook1594.biznavi.common.model.Location;
@@ -18,15 +20,16 @@ import lombok.Setter;
 
 @Document(collection = "transaction")
 @Getter
+@JsonDeserialize(builder = TransactionDto.TransactionDtoBuilder.class)
 public class TransactionDto extends AbstractCommonDto {
 
 	@Id
-	private String transactionId;
-	private String startName;
-	private String goalName;
-	private double totalDistance;
-	private String goalLat;
-	private String goalLng;
+	private final String transactionId;
+	private final String startName;
+	private final String goalName;
+	private final double totalDistance;
+	private final String goalLat;
+	private final String goalLng;
 
 	@Setter
 	private boolean finish;
@@ -49,6 +52,7 @@ public class TransactionDto extends AbstractCommonDto {
 	 */
 	@Builder
 	public TransactionDto(
+		final LocalDateTime created,
 		final String transactionId,
 		final String startName,
 		final String goalName,
@@ -59,7 +63,7 @@ public class TransactionDto extends AbstractCommonDto {
 		final boolean workAccept,
 		final List<LocationInfoDto> locationInfos
 	) {
-		super();
+		super(created);
 		this.transactionId = transactionId;
 		this.startName = startName;
 		this.goalName = goalName;

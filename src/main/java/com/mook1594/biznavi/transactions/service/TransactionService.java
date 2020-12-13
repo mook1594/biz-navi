@@ -3,6 +3,7 @@ package com.mook1594.biznavi.transactions.service;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mook1594.biznavi.transactions.domain.NavigationData;
 import com.mook1594.biznavi.transactions.dto.TransactionDto;
@@ -17,6 +18,7 @@ public class TransactionService {
 
 	private final TransactionRepository repository;
 
+	@Transactional
 	public Optional<TransactionDto> save(final NavigationData navigationData) {
 
 		final String transactionId = navigationData.getLocation().getTransId();

@@ -1,6 +1,7 @@
 package com.mook1594.biznavi.common.dto;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -13,13 +14,13 @@ import lombok.Getter;
 public class AbstractCommonDto {
 
 	@Getter
-	private LocalDateTime created;
+	protected LocalDateTime created;
 
 	public AbstractCommonDto() {
 		this.created = DateTimeUtils.now();
 	}
 
 	public AbstractCommonDto(final LocalDateTime created) {
-		this.created = created;
+		this.created = Objects.nonNull(created) ? created : DateTimeUtils.now();
 	}
 }

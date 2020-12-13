@@ -2,12 +2,14 @@ package com.mook1594.biznavi.transactions.dto;
 
 import java.beans.Transient;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.mook1594.biznavi.common.model.Location;
 
 import lombok.Builder;
 import lombok.Getter;
 
 
+@JsonDeserialize(builder = LocationInfoDto.LocationInfoDtoBuilder.class)
 public class LocationInfoDto {
 
 	@Getter private final String datetime;
