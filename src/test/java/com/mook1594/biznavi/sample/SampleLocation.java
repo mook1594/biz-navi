@@ -97,15 +97,17 @@ public class SampleLocation {
 	private static NavigationData getNaviStartDataWithIdAndDatetime(final String id, final LocalDateTime datetime) {
 		return NavigationData.builder()
 			.type(NavigationDataType.START_NAVI)
-			.locationInformation(new NavigationLocationInfo(
-				id,
-				DateTimeUtils.toString(datetime),
-				new LocationDistance(seongnamCityHall(), kakaoMobility()).distanceForMeter().intValue(),
-				"성남시청",
-				"카카오모빌리티",
-				kakaoMobility().getLatitude().toString(),
-				kakaoMobility().getLongitude().toString()
-			)).build();
+			.locationInformation(
+				NavigationLocationInfo.builder()
+					.transId(id)
+					.dateTime(DateTimeUtils.toString(datetime))
+					.totalDistance(new LocationDistance(seongnamCityHall(), kakaoMobility()).distanceForMeter().intValue())
+					.startName("성남시청")
+					.goalName("카카오모빌리티")
+					.lat(kakaoMobility().getLatitude().toString())
+					.lng(kakaoMobility().getLongitude().toString())
+					.build()
+			).build();
 	}
 
 	private static NavigationData getNaviUpdateDataWithIdAndDatetimeAndLocation(
@@ -115,13 +117,15 @@ public class SampleLocation {
 	) {
 		return NavigationData.builder()
 			.type(NavigationDataType.UPDATE_LOCATION)
-			.locationInformation(new NavigationLocationInfo(
-				id,
-				DateTimeUtils.toString(dateTime),
-				new LocationDistance(location, kakaoMobility()).distanceForMeter().intValue(),
-				location.getLatitude().toString(),
-				location.getLongitude().toString()
-			)).build();
+			.locationInformation(
+				NavigationLocationInfo.builder()
+					.transId(id)
+					.dateTime(DateTimeUtils.toString(dateTime))
+					.remainDistance(new LocationDistance(location, kakaoMobility()).distanceForMeter().intValue())
+					.lat(location.getLatitude().toString())
+					.lng(location.getLongitude().toString())
+					.build()
+			).build();
 	}
 
 	private static NavigationData getNaviEndDataWithIdAndDatetimeAndLocation(
@@ -131,12 +135,14 @@ public class SampleLocation {
 	) {
 		return NavigationData.builder()
 			.type(NavigationDataType.END_NAVI)
-			.locationInformation(new NavigationLocationInfo(
-				id,
-				DateTimeUtils.toString(dateTime),
-				new LocationDistance(location, kakaoMobility()).distanceForMeter().intValue(),
-				location.getLatitude().toString(),
-				location.getLongitude().toString()
-			)).build();
+			.locationInformation(
+				NavigationLocationInfo.builder()
+					.transId(id)
+					.dateTime(DateTimeUtils.toString(dateTime))
+					.remainDistance(new LocationDistance(location, kakaoMobility()).distanceForMeter().intValue())
+					.lat(location.getLatitude().toString())
+					.lng(location.getLongitude().toString())
+					.build()
+			).build();
 	}
 }

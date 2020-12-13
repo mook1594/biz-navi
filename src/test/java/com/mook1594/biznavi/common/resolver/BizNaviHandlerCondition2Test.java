@@ -60,14 +60,11 @@ public class BizNaviHandlerCondition2Test {
 	private NavigationData getNavigationDataWithLocation(final Location location) {
 		return new NavigationData(
 			NavigationDataType.START_NAVI,
-			new NavigationLocationInfo(
-				"navi-1",
-				"",
-				0,
-				"",
-				"",
-				location.getLatitude().toString(),
-				location.getLongitude().toString())
+			NavigationLocationInfo.builder()
+				.transId("navi-1")
+				.lat(location.getLatitude().toString())
+				.lng(location.getLongitude().toString())
+				.build()
 		);
 	}
 

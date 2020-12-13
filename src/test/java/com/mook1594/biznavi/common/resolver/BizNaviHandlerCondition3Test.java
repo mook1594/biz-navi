@@ -41,7 +41,14 @@ public class BizNaviHandlerCondition3Test {
 	private NavigationData getNavigationDataWithDatetime(final String datetime) {
 		return new NavigationData(
 			NavigationDataType.START_NAVI,
-			new NavigationLocationInfo("navi-1", datetime, 0, "", "", "0", "0")
+			NavigationLocationInfo.builder()
+				.transId("navi-1")
+				.dateTime(datetime)
+				.totalDistance(0)
+				.remainDistance(0)
+				.lat("0")
+				.lng("0")
+				.build()
 		);
 	}
 

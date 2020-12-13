@@ -58,21 +58,18 @@ public class BizNaviHandlerCondition1Test {
 	private NavigationData getNavigationDataWithLocation(final Location location) {
 		return new NavigationData(
 			NavigationDataType.START_NAVI,
-			new NavigationLocationInfo(
-				"navi-1",
-				"",
-				0,
-				"",
-				"",
-				location.getLatitude().toString(),
-				location.getLongitude().toString())
+			NavigationLocationInfo.builder()
+				.transId("navi-1")
+				.lat(location.getLatitude().toString())
+				.lng(location.getLongitude().toString())
+				.build()
 		);
 	}
 
 	private BizNaviTransactionDto getTransactionDtoWithLocation(final Location location) {
 		final BizNaviTransactionDto bizNaviTransactionDto = BizNaviTransactionDto.builder()
-			.goalLatitude(location.getLatitude().toString())
-			.goalLongitude(location.getLongitude().toString())
+			.glLat(location.getLatitude().toString())
+			.glLng(location.getLongitude().toString())
 			.build();
 		return bizNaviTransactionDto;
 	}
