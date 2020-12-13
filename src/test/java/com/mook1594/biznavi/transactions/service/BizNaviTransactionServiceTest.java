@@ -19,13 +19,13 @@ import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 public class BizNaviTransactionServiceTest {
 
 	private List<NavigationData> navigationDataList;
-	private BizNaviTransactionService service;
+	private TransactionService service;
 	private MockBizNaviTransactionRepository mockRepository;
 
 	@BeforeEach
 	public void init() {
 		mockRepository = new MockBizNaviTransactionRepository();
-		service = new BizNaviTransactionService(mockRepository);
+		service = new TransactionService(mockRepository);
 		navigationDataList = SampleLocation.navigationFromSeongNamCityHallToKakaoMobility();
 	}
 

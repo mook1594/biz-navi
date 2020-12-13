@@ -11,9 +11,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
-import com.mook1594.biznavi.transactions.repository.BizNaviTransactionRepository;
+import com.mook1594.biznavi.transactions.repository.TransactionRepository;
 
-public class MockBizNaviTransactionRepository implements BizNaviTransactionRepository {
+public class MockBizNaviTransactionRepository implements TransactionRepository {
 
 	private static final Map<String, BizNaviTransactionDto> map = new HashMap<>();
 

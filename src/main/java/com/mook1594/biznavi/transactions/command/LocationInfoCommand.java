@@ -5,7 +5,7 @@ import com.mook1594.biznavi.transactions.domain.NavigationLocationInfo;
 import lombok.Data;
 
 @Data
-public class BizNaviLocationInfoCommand {
+public class LocationInfoCommand {
 
 	private String transId;
 	private String dateTime;

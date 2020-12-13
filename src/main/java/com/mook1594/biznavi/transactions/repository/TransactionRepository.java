@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 
 @Repository
-public interface BizNaviTransactionRepository extends MongoRepository<BizNaviTransactionDto, String> {
+public interface TransactionRepository extends MongoRepository<BizNaviTransactionDto, String> {
 
 }

@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mook1594.biznavi.common.mapping.MvcMapping;
-import com.mook1594.biznavi.transactions.command.BizNaviTransactionCommand;
+import com.mook1594.biznavi.transactions.command.TransactionCommand;
 import com.mook1594.biznavi.transactions.domain.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
-import com.mook1594.biznavi.transactions.service.BizNaviTransactionService;
+import com.mook1594.biznavi.transactions.service.TransactionService;
 
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
@@ -23,13 +23,13 @@ import lombok.NonNull;
 @RestController
 @RequestMapping(MvcMapping.Url.TRANSACTION)
 @AllArgsConstructor
-public class BizNaviTransactionController {
+public class TransactionController {
 
 	@Resource(name = "bizNavi-BizNaviTransactionService")
-	private final BizNaviTransactionService service;
+	private final TransactionService service;
 
 	@PostMapping
-	public ResponseEntity post(@RequestBody @NonNull final BizNaviTransactionCommand command) {
+	public ResponseEntity post(@RequestBody @NonNull final TransactionCommand command) {
 		final NavigationData navigationData = command.toNavigationData();
 		Optional<BizNaviTransactionDto> dto = service.save(navigationData);
 		if(dto.isPresent()) {

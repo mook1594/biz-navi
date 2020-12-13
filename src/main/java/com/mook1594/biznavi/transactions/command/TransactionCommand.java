@@ -6,11 +6,11 @@ import com.mook1594.biznavi.transactions.domain.NavigationData;
 import lombok.Data;
 
 @Data
-public class BizNaviTransactionCommand {
+public class TransactionCommand {
 
 	private String type;
 
-	private BizNaviLocationInfoCommand location;
+	private LocationInfoCommand location;
 
 	public NavigationData toNavigationData() {
 		return NavigationData.builder()

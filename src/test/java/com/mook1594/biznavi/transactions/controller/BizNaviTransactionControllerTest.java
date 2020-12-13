@@ -16,8 +16,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mook1594.biznavi.common.mapping.MvcMapping;
 import com.mook1594.biznavi.sample.SampleNavigationData;
 import com.mook1594.biznavi.transactions.domain.NavigationData;
-import com.mook1594.biznavi.transactions.repository.BizNaviTransactionRepository;
-import com.mook1594.biznavi.transactions.service.BizNaviTransactionService;
+import com.mook1594.biznavi.transactions.repository.TransactionRepository;
+import com.mook1594.biznavi.transactions.service.TransactionService;
 
 // @EnableMongoRepositories
 // @ExtendWith(SpringExtension.class)
@@ -27,9 +27,9 @@ public class BizNaviTransactionControllerTest {
 	@Autowired
 	private WebApplicationContext wac;
 	@Autowired
-	private BizNaviTransactionService service;
+	private TransactionService service;
 
-	private BizNaviTransactionRepository repository;
+	private TransactionRepository repository;
 
 	private MockMvc mockMvc;
 

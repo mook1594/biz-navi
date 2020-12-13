@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 import com.mook1594.biznavi.transactions.domain.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 import com.mook1594.biznavi.transactions.handler.data.NavigationDataHandlerResolver;
-import com.mook1594.biznavi.transactions.repository.BizNaviTransactionRepository;
+import com.mook1594.biznavi.transactions.repository.TransactionRepository;
 
 import lombok.AllArgsConstructor;
 
 @Service(value = "bizNavi-BizNaviTransactionService")
 @AllArgsConstructor
-public class BizNaviTransactionService {
+public class TransactionService {
 
-	private final BizNaviTransactionRepository repository;
+	private final TransactionRepository repository;
 
 	public Optional<BizNaviTransactionDto> save(final NavigationData navigationData) {
 
