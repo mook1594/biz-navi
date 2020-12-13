@@ -14,7 +14,7 @@ public class ValidMoveHandler implements ValidHandler {
 
 	@Override
 	public boolean valid(final NavigationData navigationData, final TransactionDto transactionDto) {
-		final Location fromLocation = transactionDto.getLocationInfos().get(0).getLocation();
+		final Location fromLocation = transactionDto.getLastLocation();
 		final Location toLocation = navigationData.getLocation().getLocation();
 		final LocationDistance distance = new LocationDistance(fromLocation, toLocation);
 
