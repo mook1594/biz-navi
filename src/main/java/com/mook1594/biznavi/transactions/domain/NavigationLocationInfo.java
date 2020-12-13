@@ -1,9 +1,10 @@
-package com.mook1594.biznavi.transactions.command;
+package com.mook1594.biznavi.transactions.domain;
 
 import java.math.BigDecimal;
 
 import com.mook1594.biznavi.common.model.Location;
 
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
@@ -27,10 +28,12 @@ public class NavigationLocationInfo {
 	 * @param lat 위도
 	 * @param lng 경도
 	 */
+	@Builder
 	public NavigationLocationInfo(
 		final String transId,
 		final String dateTime,
 		final double totalDistance,
+		final double remainDistance,
 		final String startName,
 		final String goalName,
 		final String lat,
@@ -39,40 +42,14 @@ public class NavigationLocationInfo {
 		this.transId = transId;
 		this.dateTime = dateTime;
 		this.totalDistance = BigDecimal.valueOf(totalDistance);
-		this.remainDistance = BigDecimal.ZERO;
+		this.remainDistance = BigDecimal.valueOf(remainDistance);
 		this.startName = startName;
 		this.goalName = goalName;
 		this.lat = new BigDecimal(lat);
 		this.lng = new BigDecimal(lng);
 	}
 
-	/** 네비 중간, 종료 데이터
-	 * @param transId 트랜젝션 ID
-	 * @param dateTime 데이터 시간
-	 * @param remainDistance 남은 거리
-	 * @param lat 위도
-	 * @param lng 경도
-	 */
-	public NavigationLocationInfo(
-		final String transId,
-		final String dateTime,
-		final double remainDistance,
-		final String lat,
-		final String lng
-	){
-		this.transId = transId;
-		this.dateTime = dateTime;
-		this.totalDistance = BigDecimal.ZERO;
-		this.remainDistance = BigDecimal.valueOf(remainDistance);
-		this.lat = new BigDecimal(lat);
-		this.lng = new BigDecimal(lng);
-		this.startName = null;
-		this.goalName = null;
-	}
-
 	public Location getLocation() {
 		return new Location(lat, lng);
 	}
-
-
 }

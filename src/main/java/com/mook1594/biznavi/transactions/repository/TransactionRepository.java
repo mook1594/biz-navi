@@ -3,9 +3,9 @@ package com.mook1594.biznavi.transactions.repository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
+import com.mook1594.biznavi.transactions.dto.TransactionDto;
 
 @Repository
-public interface BizNaviTransactionRepository extends MongoRepository<BizNaviTransactionDto, String> {
+public interface TransactionRepository extends MongoRepository<TransactionDto, String> {
 
 }

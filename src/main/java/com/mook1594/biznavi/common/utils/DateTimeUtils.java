@@ -30,4 +30,8 @@ public class DateTimeUtils {
 			.appendValue(ChronoField.MICRO_OF_SECOND, MICRO_SECOND_LENGTH)
 			.toFormatter();
 	}
+
+	public static LocalDateTime now() {
+		return LocalDateTime.now();
+	}
 }

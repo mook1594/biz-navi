@@ -1,10 +1,11 @@
-package com.mook1594.biznavi.transactions.command;
+package com.mook1594.biznavi.transactions.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.mook1594.biznavi.common.enums.NavigationDataType;
-import com.mook1594.biznavi.transactions.dto.BizNaviLocationInfoDto;
-import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
+import com.mook1594.biznavi.common.model.Location;
+import com.mook1594.biznavi.transactions.dto.LocationInfoDto;
+import com.mook1594.biznavi.transactions.dto.TransactionDto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -30,21 +31,21 @@ public class NavigationData {
 		this.location = locationInformation;
 	}
 
-	public BizNaviTransactionDto toBizNaviTransactionDto() {
-		return BizNaviTransactionDto.builder()
+	public TransactionDto toBizNaviTransactionDto(final Location goalLocation) {
+		return TransactionDto.builder()
 			.transactionId(location.getTransId())
-			.startPlaceName(location.getStartName())
+			.startName(location.getStartName())
 			.totalDistance(location.getTotalDistance().doubleValue())
-			.goalPlaceName(location.getGoalName())
-			.goalLatitude(location.getLat().toString())
-			.goalLongitude(location.getLng().toString())
-			.transactionFinished(false)
+			.goalName(location.getGoalName())
+			.goalLat(goalLocation.getLatitude().toString())
+			.goalLng(goalLocation.getLongitude().toString())
 			.build();
 	}
 
-	public BizNaviLocationInfoDto toBizNaviLocationInfoDto() {
-		return BizNaviLocationInfoDto.builder()
+	public LocationInfoDto toBizNaviLocationInfoDto() {
+		return LocationInfoDto.builder()
 			.datetime(location.getDateTime())
+			.remainDist(location.getRemainDistance().doubleValue())
 			.lat(location.getLat().toString())
 			.lng(location.getLng().toString())
 			.build();
