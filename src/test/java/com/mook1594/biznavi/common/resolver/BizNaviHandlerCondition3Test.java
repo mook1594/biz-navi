@@ -8,8 +8,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import com.mook1594.biznavi.common.enums.NavigationDataType;
-import com.mook1594.biznavi.transactions.command.NavigationData;
-import com.mook1594.biznavi.transactions.command.NavigationLocationInfo;
+import com.mook1594.biznavi.transactions.domain.NavigationData;
+import com.mook1594.biznavi.transactions.domain.NavigationLocationInfo;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 import com.mook1594.biznavi.transactions.handler.valid.ValidTimeHandler;
 

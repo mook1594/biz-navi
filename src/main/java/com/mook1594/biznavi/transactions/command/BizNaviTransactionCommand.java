@@ -1,6 +1,7 @@
 package com.mook1594.biznavi.transactions.command;
 
 import com.mook1594.biznavi.common.enums.NavigationDataType;
+import com.mook1594.biznavi.transactions.domain.NavigationData;
 
 import lombok.Data;
 

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.google.common.collect.Lists;
-import com.mook1594.biznavi.transactions.command.NavigationData;
+import com.mook1594.biznavi.transactions.domain.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 
 public class NavigationDataHandlerResolver {

@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.mook1594.biznavi.transactions.command.NavigationData;
+import com.mook1594.biznavi.transactions.domain.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 import com.mook1594.biznavi.transactions.handler.data.NavigationDataHandlerResolver;
 import com.mook1594.biznavi.transactions.repository.BizNaviTransactionRepository;

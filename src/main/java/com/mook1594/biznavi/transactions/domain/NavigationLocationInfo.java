@@ -1,4 +1,4 @@
-package com.mook1594.biznavi.transactions.command;
+package com.mook1594.biznavi.transactions.domain;
 
 import java.math.BigDecimal;
 
@@ -52,5 +52,4 @@ public class NavigationLocationInfo {
 	public Location getLocation() {
 		return new Location(lat, lng);
 	}
-
 }

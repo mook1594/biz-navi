@@ -2,7 +2,7 @@ package com.mook1594.biznavi.transactions.handler.valid;
 
 import com.mook1594.biznavi.common.model.Location;
 import com.mook1594.biznavi.common.model.LocationDistance;
-import com.mook1594.biznavi.transactions.command.NavigationData;
+import com.mook1594.biznavi.transactions.domain.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 
 import lombok.extern.slf4j.Slf4j;

@@ -1,8 +1,8 @@
 package com.mook1594.biznavi.sample;
 
 import com.mook1594.biznavi.common.enums.NavigationDataType;
-import com.mook1594.biznavi.transactions.command.NavigationData;
-import com.mook1594.biznavi.transactions.command.NavigationLocationInfo;
+import com.mook1594.biznavi.transactions.domain.NavigationData;
+import com.mook1594.biznavi.transactions.domain.NavigationLocationInfo;
 
 public class SampleNavigationData {
 	public static NavigationData getNavigationStartData() {

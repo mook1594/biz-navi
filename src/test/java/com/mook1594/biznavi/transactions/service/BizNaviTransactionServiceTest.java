@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mook1594.biznavi.mock.MockBizNaviTransactionRepository;
 import com.mook1594.biznavi.sample.SampleLocation;
-import com.mook1594.biznavi.transactions.command.NavigationData;
+import com.mook1594.biznavi.transactions.domain.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 
 public class BizNaviTransactionServiceTest {

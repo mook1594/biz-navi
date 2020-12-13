@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mook1594.biznavi.common.mapping.MvcMapping;
 import com.mook1594.biznavi.transactions.command.BizNaviTransactionCommand;
-import com.mook1594.biznavi.transactions.command.NavigationData;
+import com.mook1594.biznavi.transactions.domain.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 import com.mook1594.biznavi.transactions.service.BizNaviTransactionService;
 

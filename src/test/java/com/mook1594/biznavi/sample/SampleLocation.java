@@ -11,8 +11,8 @@ import com.mook1594.biznavi.common.enums.NavigationDataType;
 import com.mook1594.biznavi.common.model.Location;
 import com.mook1594.biznavi.common.model.LocationDistance;
 import com.mook1594.biznavi.common.utils.DateTimeUtils;
-import com.mook1594.biznavi.transactions.command.NavigationData;
-import com.mook1594.biznavi.transactions.command.NavigationLocationInfo;
+import com.mook1594.biznavi.transactions.domain.NavigationData;
+import com.mook1594.biznavi.transactions.domain.NavigationLocationInfo;
 
 public class SampleLocation {
 

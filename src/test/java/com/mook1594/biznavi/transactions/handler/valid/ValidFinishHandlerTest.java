@@ -10,7 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.mook1594.biznavi.sample.SampleLocation;
-import com.mook1594.biznavi.transactions.command.NavigationData;
+import com.mook1594.biznavi.transactions.domain.NavigationData;
 import com.mook1594.biznavi.transactions.dto.BizNaviTransactionDto;
 import com.mook1594.biznavi.transactions.handler.data.EndNavigationDataHandler;
 import com.mook1594.biznavi.transactions.handler.data.StartNavigationDataHandler;

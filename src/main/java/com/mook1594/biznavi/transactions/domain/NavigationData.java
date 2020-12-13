@@ -1,4 +1,4 @@
-package com.mook1594.biznavi.transactions.command;
+package com.mook1594.biznavi.transactions.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

@@ -1,5 +1,7 @@
 package com.mook1594.biznavi.transactions.command;
 
+import com.mook1594.biznavi.transactions.domain.NavigationLocationInfo;
+
 import lombok.Data;
 
 @Data

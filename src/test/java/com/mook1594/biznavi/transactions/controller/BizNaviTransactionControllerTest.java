@@ -15,7 +15,7 @@ import org.springframework.web.context.WebApplicationContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mook1594.biznavi.common.mapping.MvcMapping;
 import com.mook1594.biznavi.sample.SampleNavigationData;
-import com.mook1594.biznavi.transactions.command.NavigationData;
+import com.mook1594.biznavi.transactions.domain.NavigationData;
 import com.mook1594.biznavi.transactions.repository.BizNaviTransactionRepository;
 import com.mook1594.biznavi.transactions.service.BizNaviTransactionService;
 
