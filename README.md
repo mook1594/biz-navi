@@ -16,7 +16,7 @@
   - 내비 시작 후 24시간 동안 위치 정보가 수신 되지 않으면 저장하지 않음. - 스케줄러 (미구현)
   - 종료 후에 위치 정보가 업데이트 되는 경우 무시 [ValidFinishHandler](./src/main/java/com/mook1594/biznavi/transactions/handler/valid/ValidTimeHandler.java)
   
-#### <내비 종료> [EndNavigationDataHandler](./src/main/java/com/mook1594/biznavi/transactions/handler/data/ValidFinishHandler.java)
+#### <내비 종료> [EndNavigationDataHandler](./src/main/java/com/mook1594/biznavi/transactions/handler/data/EndNavigationDataHandler.java)
   - 설정된 목적지와 내비 종료 위치가 100m 이내이면 업무인정 종료. 그외엔 불인정 처리. [ValidGoalHandler](./src/main/java/com/mook1594/biznavi/transactions/handler/valid/ValidGoalHandler.java)
 
 ### 조건
