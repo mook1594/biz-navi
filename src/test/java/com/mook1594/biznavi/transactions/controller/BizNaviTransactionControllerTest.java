@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -17,19 +18,24 @@ import com.mook1594.biznavi.transactions.command.TransactionCommand;
 import com.mook1594.biznavi.transactions.domain.NavigationData;
 import com.mook1594.biznavi.transactions.dto.TransactionDto;
 
+import reactor.core.publisher.Mono;
+
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class BizNaviTransactionControllerTest {
+
+	@LocalServerPort
+	int randomServerPort;
 
 	private WebClient webClient;
 
 	@BeforeEach
 	void init() {
-		webClient = WebClient.create("http://localhost:8080");
+		webClient = WebClient.create("http://localhost:" + randomServerPort);
 	}
 
 	@Test
-	public void test() throws Exception{
+	public void test() {
 		TransactionCommand command = getCommand();
 
 		TransactionDto dto = webClient.post()
@@ -38,13 +44,15 @@ public class BizNaviTransactionControllerTest {
 			.accept(MediaType.APPLICATION_JSON)
 			.bodyValue(command)
 			.retrieve()
+			.onStatus(s -> !s.is2xxSuccessful(),
+				r -> Mono.error(new RuntimeException("not success")))
 			.bodyToMono(TransactionDto.class)
 			.flux()
 			.toStream()
 			.findFirst()
 			.orElse(null);
 
-		assertEquals(command.getLocation().getTransId(), dto.getTransactionId());
+		assertNotNull(dto);
 	}
 
 	private TransactionCommand getCommand() {

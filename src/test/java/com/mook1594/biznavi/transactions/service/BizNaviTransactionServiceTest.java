@@ -10,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mook1594.biznavi.mock.MockBizNaviTransactionRepository;
 import com.mook1594.biznavi.sample.SampleLocation;
 import com.mook1594.biznavi.transactions.domain.NavigationData;
@@ -41,14 +40,5 @@ public class BizNaviTransactionServiceTest {
 
 		assertTrue(opTransaction.isPresent());
 		assertTrue(opTransaction.get().isWorkAccept());
-	}
-
-	private static String getJson(Object obj) {
-		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			return objectMapper.writeValueAsString(obj);
-		} catch (Exception ex) {
-			return "";
-		}
 	}
 }

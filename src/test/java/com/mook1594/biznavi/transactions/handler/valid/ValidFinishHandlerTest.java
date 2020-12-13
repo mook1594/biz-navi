@@ -40,7 +40,7 @@ public class ValidFinishHandlerTest {
 		endHandler.resolveNavigationData(lastData, transactionDto);
 		updateHandler.resolveNavigationData(navigationDataList.get(4), transactionDto);
 
-		assertEquals(4, transactionDto.get().getLocationInfos().size());
+		assertEquals(3, transactionDto.get().getLocationInfos().size());
 	}
 
 	private Optional<TransactionDto> find() {

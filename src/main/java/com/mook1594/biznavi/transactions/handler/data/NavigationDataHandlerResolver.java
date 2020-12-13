@@ -27,6 +27,7 @@ public class NavigationDataHandlerResolver {
 		return handlers.stream()
 			.filter(h -> h.isType(data.getType()))
 			.map(h -> h.resolveNavigationData(data, transaction))
+			.filter(t -> t.isPresent())
 			.findFirst()
 			.orElse(Optional.empty());
 	}

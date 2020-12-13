@@ -1,6 +1,5 @@
 package com.mook1594.biznavi.transactions.dto;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -52,7 +51,6 @@ public class TransactionDto extends AbstractCommonDto {
 	 */
 	@Builder
 	public TransactionDto(
-		final LocalDateTime created,
 		final String transactionId,
 		final String startName,
 		final String goalName,
@@ -63,7 +61,7 @@ public class TransactionDto extends AbstractCommonDto {
 		final boolean workAccept,
 		final List<LocationInfoDto> locationInfos
 	) {
-		super(created);
+		super();
 		this.transactionId = transactionId;
 		this.startName = startName;
 		this.goalName = goalName;

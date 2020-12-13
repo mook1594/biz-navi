@@ -8,7 +8,7 @@ public class SampleNavigationData {
 	public static NavigationData getNavigationStartData() {
 		return new NavigationData(NavigationDataType.START_NAVI,
 			NavigationLocationInfo.builder()
-				.transId("kakao20201113-0001")
+				.transId("kakao20201113-0003")
 				.dateTime("202011131101020003")
 				.totalDistance(7000)
 				.startName("성남시청")
